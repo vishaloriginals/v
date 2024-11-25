@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ignore this, this is some random text for my personal work <svg class="cu" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256"><g class="path" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M43.75391,6.40234c-1.2177,-0.05335 -2.45911,0.31055 -3.48242,1.06641l-2.74609,2.02734l-12.52539,9.25977l-12.4082,-9.17187c-0.17292,-0.16897 -0.4012,-0.26957 -0.64258,-0.2832h0.25l-2.46484,-1.82422c-1.02397,-0.75773 -2.26723,-1.12367 -3.48633,-1.07031c-1.2191,0.05336 -2.4131,0.52522 -3.33984,1.43945c-1.17726,1.16068 -1.9082,2.78413 -1.9082,4.56445v3.43359c-0.01457,0.09777 -0.01457,0.19715 0,0.29492v23.36133c0,1.92119 1.57881,3.5 3.5,3.5h7.5c0.55226,-0.00006 0.99994,-0.44774 1,-1v-16.62695l11.40625,8.43164c0.353,0.26043 0.8345,0.26043 1.1875,0l11.40625,-8.43164v16.62695c0.00006,0.55226 0.44774,0.99994 1,1h7.5c1.92119,0 3.5,-1.57881 3.5,-3.5v-23.38086c0.01129,-0.08622 0.01129,-0.17355 0,-0.25977v-3.44922c0,-1.75846 -0.70954,-3.37437 -1.87109,-4.53711c-0.03357,-0.03357 -0.04482,-0.04287 -0.03125,-0.0293c-0.00194,-0.00196 -0.0039,-0.00391 -0.00586,-0.00586c-0.92656,-0.91221 -2.12019,-1.3822 -3.33789,-1.43555zM43.64453,8.40039c0.7563,0.02965 1.48952,0.3165 2.04492,0.86328c0.01891,0.01867 0.03272,0.03277 0.02344,0.02344c0.79645,0.79726 1.28711,1.9015 1.28711,3.12305v3.08594l-8,5.91211v-10.4082c0.00042,-0.0339 -0.00088,-0.0678 -0.00391,-0.10156l2.46289,-1.82031c0.00065,0 0.0013,0 0.00195,0c0.64864,-0.47915 1.42729,-0.70739 2.18359,-0.67773zM6.35742,8.40625c0.75715,-0.02964 1.53847,0.19746 2.1875,0.67773l2.45898,1.81836c-0.00289,0.03247 -0.0042,0.06506 -0.00391,0.09766v10.4082l-8,-5.91211v-3.08594c0,-1.23567 0.50176,-2.3413 1.3125,-3.14062c0.55526,-0.54776 1.28777,-0.83364 2.04492,-0.86328zM37,12.37109v10.51563l-12,8.86914l-12,-8.86914v-10.51367l11.40625,8.43164c0.353,0.26043 0.8345,0.26043 1.1875,0zM3,17.98242l8,5.91406v17.10352h-6.5c-0.84081,0 -1.5,-0.65919 -1.5,-1.5zM47,17.98242v21.51758c0,0.84081 -0.65919,1.5 -1.5,1.5h-6.5v-17.10352z"></path></g></g></svg>bdhhdbdbshdbdbdbhsvsvvdvdvvdvdhsjjsjsbsbsbsjhsjsnsnsnnsnnsnsnsnnsnznznznnznzngdhsksjsvvdhzbsbsvzhzbvsbsbzbbsvvshshvsvshbbsbsbsbbsbzbbxbdbbsbdbgdhsiehvddjhsnsndhdjbsnrbdjsjbsevbdbsnnsbdsbzbkzhs -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="weblogo16.svg" sizes="16x16" type="image/svg">
+    <link rel="icon" href="weblogo32.svg" sizes="32x32" type="image/svg">
+    <link rel="icon" href="weblogo48.svg" sizes="48x48" type="image/svg">
+    <link rel="icon" href="weblogo96.svg" sizes="96x96" type="image/svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Lato -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Montserrat -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Quicksand -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">  <!-- Bodoni Moda -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">  <!-- Merienda -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">  <!-- Gruppo , Tangerine -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gruppo&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">  <!-- EB Garamond , Mr De Haviland , Parisienne -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Mr+De+Haviland&family=Parisienne&display=swap" rel="stylesheet">
+    <title>Parallel Frames</title>
+    <link rel="stylesheet" href="three.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            vishaloriginals
+        </div>
+        <nav>
+            <a class="sa" href="">T&C</a>
+            <a class="sb">Contact</a>
+            <a class="sc" href="#">About</a>
+        </nav>
+        <div class="logo-pic">
+            <img src="images/parallel-frames.png" alt="main-logo" class="pf-img">
+        </div>
+        <div class="hero">
+            <h1 class="vxr">
+                Parallel Frames
+            </h1>
+            <h2 class="v2">
+                In the space between reality and imagination, every frame whispers a new beginning
+            </h2>
+            <button class="creator">
+                <svg class="user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/></svg>  Creator
+            </button>
+        </div>
+    </header>
+    <main>
+        <div class="extra-space"></div>
+        <div class="divider">
+            <div class="line"></div>
+        </div>
+        <div class="division">
+            <div class="divic">
+                Custom handmade pencil sketches starting at just ₹200 !
+            </div>
+        </div>
+        <div class="slider">
+            <div class="slider-container">
+                <div class="slider-image">
+                    <p class="img-name">
+                        Whispers of River
+                    </p>
+                    <img src="images/river.jpg" alt="" class="image">
+                </div>
+                <div class="slider-image">
+                    <p class="img-name">
+                        Wings of peace
+                    </p>
+                    <img src="images/bird.jpg" alt="" class="image">
+                </div>
+                <div class="slider-image">
+                    <p class="img-name">
+                        Vasudev Krishna
+                    </p>
+                    <img src="images/krishna.jpg" alt="" class="image">
+                </div>
+                <div class="slider-image">
+                    <p class="img-name">
+                        The tale of Doraemon
+                    </p>
+                    <img src="images/doraemon.jpg" alt="" class="image">
+                </div>
+                <div class="slider-image">
+                    <p class="img-name">
+                        Sound of waves
+                    </p>
+                    <img src="images/seaside.jpg" alt="" class="image">
+                </div>
+            </div>
+        </div>
+        <div class="desc">
+            <div class="des">
+                Bring your memories to life with custom handmade pencil sketches, crafted with care and attention to detail. Starting at just ₹200, these personalized artworks make the perfect gift or keepsake
+            </div>
+        </div>
+        <button id="on">Order Now</button>
+        <div class="divider">
+            <div class="line"></div>
+        </div>
+        <div class="division">
+            <div class="divic">
+                Get your own custom website tailored for portfolios, art, and more - starting at just ₹400 !
+            </div>
+        </div>
+        <div class="web-slider">
+            <div class="website">
+                <div class="wp-text">
+                    Website for Portfolio 
+                </div>
+                <img src="images/wp1.png" alt="" class="wp-image">
+            </div>
+            <div class="website">
+                <div class="wp-text2">
+                    Food
+                </div>
+                <img src="images/wp2.png" alt="" class="wp-image">
+            </div>
+            <div class="website">
+                <div class="wp-text3">
+                    Art and more
+                </div>
+                <img src="images/wp3.png" alt="" class="wp-image">
+            </div>
+        </div>
+        <div class="desc2">
+            <div class="des2">
+                Get a custom-designed website tailored to your needs—perfect for portfolios, art, and more. Starting at just ₹400, stand out with a professional, stunning, and unique design. Let’s create something amazing together
+            </div>
+        </div>
+        <button id="on2">Get Now</button>
+        <div class="divider">
+            <div class="line"></div>
+        </div>
+        <div class="lr-bg">
+            <div class="division2">
+                <div class="divic2">
+                    Free Lightroom presets !
+                </div>
+            </div>
+        </div>
+        <div class="desc3">
+            <div class="des3">
+                Enhance your photos effortlessly with our free Lightroom presets. Transform your images with professional-quality edits in just a click. Download now and elevate your photography
+                <button id="on3">Download Presets</button>
+            </div>
+        </div>
+        <div class="divider">
+            <div class="line"></div>
+        </div>
+        <div class="division">
+            <div class="divic">
+                You can leave a message, Questions or Suggestions for me.
+            </div>
+        </div>
+        <form action="" class="form" id="feedbackForm">
+            <input type="text" placeholder="Name" id="name" required>
+            <textarea name="" id="feedback" cols="30" rows="10" placeholder="Message" required></textarea>
+            <button id="on4" onclick="submitForm">Submit</button> 
+        </form>
+    </main>
+    <footer>
+        <div class="end">
+            <div class="addr">
+                Jharkhand, India,
+                <div class="mail">
+                    <svg class="cu" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256"><g class="path" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M43.75391,6.40234c-1.2177,-0.05335 -2.45911,0.31055 -3.48242,1.06641l-2.74609,2.02734l-12.52539,9.25977l-12.4082,-9.17187c-0.17292,-0.16897 -0.4012,-0.26957 -0.64258,-0.2832h0.25l-2.46484,-1.82422c-1.02397,-0.75773 -2.26723,-1.12367 -3.48633,-1.07031c-1.2191,0.05336 -2.4131,0.52522 -3.33984,1.43945c-1.17726,1.16068 -1.9082,2.78413 -1.9082,4.56445v3.43359c-0.01457,0.09777 -0.01457,0.19715 0,0.29492v23.36133c0,1.92119 1.57881,3.5 3.5,3.5h7.5c0.55226,-0.00006 0.99994,-0.44774 1,-1v-16.62695l11.40625,8.43164c0.353,0.26043 0.8345,0.26043 1.1875,0l11.40625,-8.43164v16.62695c0.00006,0.55226 0.44774,0.99994 1,1h7.5c1.92119,0 3.5,-1.57881 3.5,-3.5v-23.38086c0.01129,-0.08622 0.01129,-0.17355 0,-0.25977v-3.44922c0,-1.75846 -0.70954,-3.37437 -1.87109,-4.53711c-0.03357,-0.03357 -0.04482,-0.04287 -0.03125,-0.0293c-0.00194,-0.00196 -0.0039,-0.00391 -0.00586,-0.00586c-0.92656,-0.91221 -2.12019,-1.3822 -3.33789,-1.43555zM43.64453,8.40039c0.7563,0.02965 1.48952,0.3165 2.04492,0.86328c0.01891,0.01867 0.03272,0.03277 0.02344,0.02344c0.79645,0.79726 1.28711,1.9015 1.28711,3.12305v3.08594l-8,5.91211v-10.4082c0.00042,-0.0339 -0.00088,-0.0678 -0.00391,-0.10156l2.46289,-1.82031c0.00065,0 0.0013,0 0.00195,0c0.64864,-0.47915 1.42729,-0.70739 2.18359,-0.67773zM6.35742,8.40625c0.75715,-0.02964 1.53847,0.19746 2.1875,0.67773l2.45898,1.81836c-0.00289,0.03247 -0.0042,0.06506 -0.00391,0.09766v10.4082l-8,-5.91211v-3.08594c0,-1.23567 0.50176,-2.3413 1.3125,-3.14062c0.55526,-0.54776 1.28777,-0.83364 2.04492,-0.86328zM37,12.37109v10.51563l-12,8.86914l-12,-8.86914v-10.51367l11.40625,8.43164c0.353,0.26043 0.8345,0.26043 1.1875,0zM3,17.98242l8,5.91406v17.10352h-6.5c-0.84081,0 -1.5,-0.65919 -1.5,-1.5zM47,17.98242v21.51758c0,0.84081 -0.65919,1.5 -1.5,1.5h-6.5v-17.10352z"></path></g></g></svg>
+                    : originalsvishal@gmail.com
+                </div>
+            </div>
+        </div>
+        <div class="divider2">
+            <div class="line2"></div>
+        </div>
+        <div class="a2024">
+            © 2024 Parallel Frames LTD
+        </div>
+        <div class="tc">
+            <a class="tclass">Terms & Conditions</a>
+            <div class="vline"></div>
+            <a class="tclass">Privacy Policy</a>
+        </div>
+        <div class="ending">
+            A website by vishaloriginals
+        </div>
+    </footer>
+    <div class="taskbar">
+        <div class="pfcont">
+            <img src="images/parallel-frames.png" alt="" class="pf">
+        </div>
+        <div class="digital-clock">
+            <div class="time">
+                <div class="hour">12</div>
+                <div class="dot">:</div>
+                <div class="min">05</div>
+                <div class="ampm">AM</div>
+            </div>
+            <div class="scon">
+                <div class="stick"></div>
+            </div>
+            <div class="more-times">
+                <div class="week">
+                    Thu
+                </div>
+                <div class="more-details">November 01</div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
