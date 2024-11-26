@@ -14,7 +14,7 @@ header {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0rem, rgba(255, 255, 255, 0) 4rem), linear-gradient(to top, #e6e6e6 0rem, rgba(255, 255, 255, 0) 12rem), url('images/bg2.jpg');
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0rem, rgba(255, 255, 255, 0) 4rem), linear-gradient(to top, #e6e6e6 0rem, rgba(255, 255, 255, 0) 12rem), url('bg2.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -423,7 +423,7 @@ main {
     color: white;
 }
 .lr-bg {
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0rem, rgba(255, 255, 255, 0) 4rem), linear-gradient(to bottom, #e6e6e6 0rem, rgba(255, 255, 255, 0) 6rem), url('images/lr.jpg');
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0rem, rgba(255, 255, 255, 0) 4rem), linear-gradient(to bottom, #e6e6e6 0rem, rgba(255, 255, 255, 0) 6rem), url('lr.jpg');
     background-size: cover;
     background-position: center;
     height: 25rem;
@@ -651,7 +651,7 @@ footer {
         transform: translateY(-75px);
     }
     .lr-bg {
-        background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0rem, rgba(255, 255, 255, 0) 4rem), linear-gradient(to bottom, #e6e6e6 0rem, rgba(255, 255, 255, 0) 6rem), url('images/lrpc.jpg');
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0rem, rgba(255, 255, 255, 0) 4rem), linear-gradient(to bottom, #e6e6e6 0rem, rgba(255, 255, 255, 0) 6rem), url('lrpc.jpg');
     }
     .des2 {
         font-size: 6.5px;
