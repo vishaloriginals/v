@@ -1,3 +1,6 @@
+/* hellonsnsnnsnsnshshbsbsbsbshsbsbbsbsbsbsbsbbsbsbsbsbbsbsbbsbbdbsbsbbdbsbsbsbdbbsbsbsbsbdbbdbdbxgdvbgdbshhfbdbdbdvdhhshdbdbbdhhdhdhdbdbbbbdbdhhsbhshdhshhdhshshshshshdhksbddyhwbhdsjnshellosnshdnsnsjsjsnsnnsvidhalbdisjjsjsjsjvishal */
+/*    #dcdfff    */
+/*    #e5e7ff    */
 body {
     padding: 0;
     margin: 0;
@@ -11,7 +14,7 @@ header {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0rem, rgba(255, 255, 255, 0) 4rem), linear-gradient(to top, #e6e6e6 0rem, rgba(255, 255, 255, 0) 12rem), url('bg2.jpg');
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0rem, rgba(255, 255, 255, 0) 4rem), linear-gradient(to top, #e6e6e6 0rem, rgba(255, 255, 255, 0) 12rem), url('images/bg2.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -337,9 +340,6 @@ main {
         opacity: 1;
     }
 }
-.webcont {
-    
-}
 .web-slider {
     width: 100vw;
     overflow-y: hidden;
@@ -404,18 +404,7 @@ main {
     justify-content: center;
     transform: translate(0px, 10px);
 }
-.desc2 {
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-}
-.des2 {
-    font-size: 19px;
-    font-family: Quicksand;
-    margin-bottom: auto;
-    font-weight: 300;
-    width: 90vw;
-}
+
 #on2 {
     margin-left: 5vw;
     font-size: 16px;
@@ -434,7 +423,7 @@ main {
     color: white;
 }
 .lr-bg {
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0rem, rgba(255, 255, 255, 0) 4rem), linear-gradient(to bottom, #e6e6e6 0rem, rgba(255, 255, 255, 0) 6rem), url('lr.jpg');
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0rem, rgba(255, 255, 255, 0) 4rem), linear-gradient(to bottom, #e6e6e6 0rem, rgba(255, 255, 255, 0) 6rem), url('images/lr.jpg');
     background-size: cover;
     background-position: center;
     height: 25rem;
@@ -632,6 +621,17 @@ footer {
     font-family: Quicksand;
     font-weight: 400;
 }
+.webtext {
+    font-size: 19px;
+}
+
+#last1 {
+    width: 90vw;
+    font-size: 19px;
+    font-family: Lato;
+    font-weight: 300;
+    margin-left: 5vw;
+}
 @media screen and (min-width: 768px) {
     .website {
         width: 16rem;
@@ -651,6 +651,21 @@ footer {
         transform: translateY(-75px);
     }
     .lr-bg {
-        background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0rem, rgba(255, 255, 255, 0) 4rem), linear-gradient(to bottom, #e6e6e6 0rem, rgba(255, 255, 255, 0) 6rem), url('lrpc.jpg');
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0rem, rgba(255, 255, 255, 0) 4rem), linear-gradient(to bottom, #e6e6e6 0rem, rgba(255, 255, 255, 0) 6rem), url('images/lrpc.jpg');
+    }
+    .des2 {
+        font-size: 6.5px;
+    }
+    .divic {
+        font-size: 21px;
+    }
+    .divic2 {
+        font-size: 21px;
+    }
+    .webtext {
+        font-size: 6.5px;
+    }
+    #last1 {
+        font-size: 18px;
     }
 }
