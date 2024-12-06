@@ -39,21 +39,21 @@
             vishaloriginals
         </div>
         <nav>
-            <a class="sa" href="">T&C</a>
+            <a class="sa" id="apply">T&C</a>
             <a class="sb">Contact</a>
             <a class="sc" href="#">About</a>
         </nav>
         <div class="logo-pic">
-            <img src="parallel-frames.png" alt="main-logo" class="pf-img">
+            <img src="images/parallel-frames.png" alt="main-logo" class="pf-img">
         </div>
         <div class="hero">
             <h1 class="vxr">
-                Parallel Frames
+                ParAllEl FraMeS
             </h1>
             <h2 class="v2">
                 In the space between reality and imagination, every frame whispers a new beginning
             </h2>
-            <button class="creator">
+            <button class="creator" id="openPopup">
                 <svg class="user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/></svg>  Creator
             </button>
         </div>
@@ -74,31 +74,31 @@
                     <p class="img-name">
                         Whispers of River
                     </p>
-                    <img src="river.jpg" alt="" class="image">
+                    <img src="images/river.jpg" alt="" class="image">
                 </div>
                 <div class="slider-image">
                     <p class="img-name">
                         Wings of peace
                     </p>
-                    <img src="bird.jpg" alt="" class="image">
+                    <img src="images/bird.jpg" alt="" class="image">
                 </div>
                 <div class="slider-image">
                     <p class="img-name">
                         Vasudev Krishna
                     </p>
-                    <img src="krishna.jpg" alt="" class="image">
+                    <img src="images/krishna.jpg" alt="" class="image">
                 </div>
                 <div class="slider-image">
                     <p class="img-name">
                         The tale of Doraemon
                     </p>
-                    <img src="doraemon.jpg" alt="" class="image">
+                    <img src="images/doraemon.jpg" alt="" class="image">
                 </div>
                 <div class="slider-image">
                     <p class="img-name">
                         Sound of waves
                     </p>
-                    <img src="seaside.jpg" alt="" class="image">
+                    <img src="images/seaside.jpg" alt="" class="image">
                 </div>
             </div>
         </div>
@@ -121,19 +121,19 @@
                 <div class="wp-text">
                     Website for Portfolio 
                 </div>
-                <img src="wp1.png" alt="" class="wp-image">
+                <img src="images/wp1.png" alt="" class="wp-image">
             </div>
             <div class="website">
                 <div class="wp-text2">
                     Food
                 </div>
-                <img src="wp2.png" alt="" class="wp-image">
+                <img src="images/wp2.png" alt="" class="wp-image">
             </div>
             <div class="website">
                 <div class="wp-text3">
                     Art and more
                 </div>
-                <img src="wp3.png" alt="" class="wp-image">
+                <img src="images/wp3.png" alt="" class="wp-image">
             </div>
         </div>
         <div id="last1">
@@ -153,7 +153,9 @@
         <div class="desc3">
             <div class="des3">
                 Enhance your photos effortlessly with our free Lightroom presets. Transform your images with professional-quality edits in just a click. Download now and elevate your photography
-                <button id="on3">Download Presets</button>
+                <div class="prbtndiv">
+                    <button id="on3">Download Presets</button>
+                </div>
             </div>
         </div>
         <div class="divider">
@@ -187,17 +189,78 @@
             © 2024 Parallel Frames LTD
         </div>
         <div class="tc">
-            <a class="tclass">Terms & Conditions</a>
+            <a class="sa" id="tclass">Terms & Conditions</a>
             <div class="vline"></div>
-            <a class="tclass">Privacy Policy</a>
+            <a id="tclass">Privacy Policy</a>
         </div>
         <div class="ending">
             A website by vishaloriginals
         </div>
     </footer>
+    <div id="popup" class="hidden">
+        <div class="popup-content">
+            <span id="closePopup" class="close">&times;</span>
+            <div class="infosys">
+                <p id="fed">i'm a frontend developer, vishal</p>
+                <p id="fed2">Hi, I'm Vishal, a passionate frontend web developer specializing in HTML, CSS, and JavaScript. I'm also a dedicated Linux enthusiast, constantly exploring and optimizing systems to create seamless digital experiences.</p>
+            </div>
+            <div class="signature">
+                Vishal Originals
+            </div>
+        </div>
+    </div>
+    <div id="warningDr" class="chup">
+        <div class="warnDr">
+            <h4>Please first read Terms & Conditions for drawing services.</h4>
+            <div class="btndiv">
+                <button class="sa" id="opentc">Terms & Conditions</button>
+                <button id="proceeddr" href="drawing.html">Proceed to Order</button>
+            </div>
+        </div>
+    </div>
+    <div id="tandc" class="hide">
+        <div class="tand">
+            <span id="closeTand" class="ctand">&times;</span>
+            <div class="term-details">
+                <section class="terms">
+                    <h3 class="term-head">Terms and Conditions for Services</h3>
+                    <h4>Drawing Services</h4>
+                    <ul>
+                        <li>The starting price for a pencil sketch portrait is ₹200, with an advance payment of ₹100 required.</li>
+                        <li>Customization of the artwork may incur additional charges depending on the complexity and number of changes requested.</li>
+                        <li>The artwork will be a portrait, excluding any background elements.</li>
+                        <li>The estimated time for completion is 14 days. If I am unable to complete the sketch within this timeframe, I will refund your advance payment. For customization, I will be needed extra time</li>
+                    </ul>
+                </section>
+                <section class="terms">
+                    <h4>Website Services</h4>
+                    <ul>
+                        <li>The starting price for a basic website (mobile or desktop) is ₹400, with a 50% advance payment of ₹200.</li>
+                        <li>An additional ₹100 will be charged for making the website responsive (i.e., ensuring it works well and looks good on both mobile and desktop).</li>
+                        <li>Extra charges will apply for incorporating animations, JavaScript-based functionalities, or other complex features, depending on the scope of work.</li>
+                        <li>I offer 3 free revisions. After that, further changes will incur an additional charge.</li>
+                        <li>The estimated completion time for the website is 30 days. If i cannot complete the website within the timeframe, I will be refunding or I will take some more time with some discount on your project.</li>
+                        <li>Hosting is provided for free via GitHub.</li>
+                    </ul>
+                </section>
+                <div class="term-footer">
+                    <p>Thank you for considering my services. I look forward to working with you!</p>
+                    <p>Wishing you a wonderful day ahead!</p>
+                </div>
+                <div class="term-end">
+                    Vishal Originals
+                </div>
+                <div class="term-white">
+                    <div class="blackline"></div>
+                    <div class="intext">v</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="taskbar">
         <div class="pfcont">
-            <img src="parallel-frames.png" alt="" class="pf">
+            <img src="images/parallel-frames.png" alt="" class="pf">
         </div>
         <div class="digital-clock">
             <div class="time">
