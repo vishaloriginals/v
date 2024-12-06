@@ -1,3 +1,4 @@
+// code for clock
 const $ = (selector) => document.querySelector(selector);
 
 const hour = $('.hour');
@@ -58,9 +59,8 @@ feedback.addEventListener("input", () => {
     feedback.style.height = Math.min(feedback.scrollHeight, 140) + "px"; // Adjust height dynamically
 });
 
+// feedback message
 
-
-// bot reply for telegram
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('feedbackForm');
     const feedbackInput = document.getElementById('feedback');
@@ -71,6 +71,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const feedback = feedbackInput.value.trim();
         const name = nameInput.value.trim(); // Get the name value
 
+        // Check if the name contains only alphabets
+        const nameRegex = /^[A-Za-z\s]+$/; // Allows alphabets and spaces
+        if (!nameRegex.test(name)) {
+            alert('Name can only contain alphabets.');
+            return;
+        }
+
         if (name && feedback) {
             try {
                 const response = await fetch('https://api.telegram.org/bot6595523271:AAFMCKyKyDJSTcOYSQvY3ok4feu1mTIBhSI/sendMessage', {
@@ -80,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     },
                     body: JSON.stringify({
                         chat_id: '5719914218',
-                        text: `Name: ${name}\nFeedback: ${feedback}`, // Include name in the message
+                        text: `Name: ${name}\nMessage: ${feedback}`, // Include name in the message
                     }),
                 });
 
@@ -100,3 +107,74 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+
+// google drive's presets link
+document.getElementById('on3').addEventListener('click', function () {
+  window.location.href = "https://drive.google.com/drive/folders/1ytgz2U7-uEDARb7AKjvJUDVGG2mSzJlM";
+});
+
+// this is for creator popup
+// Select elements
+const openPopupBtn = document.getElementById("openPopup");
+const closePopupBtn = document.getElementById("closePopup");
+const popup = document.getElementById("popup");
+
+// Open popup
+openPopupBtn.addEventListener("click", () => {
+  popup.classList.remove("hidden");
+});
+
+// Close popup
+closePopupBtn.addEventListener("click", () => {
+  popup.classList.add("hidden");
+});
+
+// Close popup when clicking outside content
+popup.addEventListener("click", (event) => {
+  if (event.target === popup) {
+    popup.classList.add("hidden");
+  }
+});
+
+
+// Terms and conditions
+const openTerms = document.querySelectorAll('.sa');
+const terms = document.getElementById("tandc");
+const closetc = document.getElementById("closeTand");
+
+// Add event listeners to each element in the NodeList
+openTerms.forEach(button => {
+    button.addEventListener("click", () => {
+        terms.classList.remove("hide");
+    });
+});
+
+// Close the terms and conditions modal when close button is clicked
+closetc.addEventListener("click", () => {
+    terms.classList.add("hide");
+});
+
+// Close the terms and conditions modal when clicking outside the modal content
+terms.addEventListener("click", (event) => {
+    if (event.target === terms) {
+        terms.classList.add("hide");
+    }
+});
+
+
+// t&c warning for drawing
+const drbtn = document.querySelector('#on');
+const warndr = document.querySelector('#warningDr');
+
+drbtn.onclick = () => {
+    warndr.classList.remove("chup");
+};
+
+warndr.addEventListener("click", (event) => {
+    if (event.target === warndr) {
+        warndr.classList.add("chup");
+    }
+});
+
