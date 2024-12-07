@@ -1,0 +1,128 @@
+@font-face {
+    font-family: Major;
+    src: url(fonts/LeMajor-Regular.ttf);
+}
+@font-face {
+    font-family: Carlo;
+    src: url(fonts/Carlo.ttf);
+}
+@font-face {
+    font-family: Love;
+    src: url(fonts/belovemelody-regular.otf);
+}
+@font-face {
+    font-family: Sign;
+    src: url(fonts/Bastliga-One.ttf);
+}
+body {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(-45deg, #1E58E6, #13f0be);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.element {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 18rem;
+    height: 26rem;
+    border-radius: 1rem;
+}
+h1 {
+    font-size: 19px;
+    font-family: Major;
+}
+.custom-button {
+    background-color: #E7E7E7;
+    border: 2px solid #C1C1C1;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 14rem;
+    height: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#file {
+    opacity: 0;
+    display: none;
+}
+#feedbackForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#name {
+    border: none;
+    border-bottom: 2px solid #13f0be;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 14rem;
+    font-size: 13px;
+    font-family: Quicksand;
+    font-weight: 600;
+    outline: none;
+}
+#phone {
+    border: none;
+    border-bottom: 2px solid #13f0be;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 14rem;
+    font-size: 13px;
+    font-family: Quicksand;
+    font-weight: 600;
+    outline: none;
+}
+#email {
+    border: none;
+    border-bottom: 2px solid #13f0be;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 14rem;
+    font-size: 13px;
+    font-family: Quicksand;
+    font-weight: 600;
+    outline: none;
+}
+.choose {
+    color: #4B4B4B;
+    font-family: Quicksand;
+    font-size: 13px;
+}
+.send {
+    margin-top: 0;
+    font-size: 13px;
+    font-family: Quicksand;
+    font-weight: 600;
+    height: 2rem;
+    width: 5rem;
+    border-radius: 1rem;
+    border: none;
+    color: white;
+    background: linear-gradient(-45deg, #1E58E6, #13f0be);
+}
+.img {
+    height: 1rem;
+    fill: #4b4b4b;
+}
+.photo {
+    height: 1rem;
+}
+.up {
+    margin-left: 5px;
+    font-family: Quicksand;
+    font-weight: 600;
+}
+.pf {
+    font-size: 11px;
+    margin-top: 0;
+    font-family: Quicksand;
+    transform: translateY(-1rem);
+}
