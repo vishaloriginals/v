@@ -161,7 +161,7 @@ main {
 .slider-container::-webkit-scrollbar {
     display: none;
 }
-.slider-image {
+#slider-image {
     height: 140vw;
     width: 100vw;
     margin-left: 25px;
@@ -173,19 +173,19 @@ main {
     filter: opacity(1);
     filter: drop-shadow(0px 0px 8px rgba(0,0,0,0.6));
 }
-.slider-image:nth-child(1) {
+#slider-image:nth-child(1) {
     margin-left: 58px;
 }
-.slider-image:nth-child(2) {
+#slider-image:nth-child(2) {
     
 }
-.slider-image:nth-child(3) {
+#slider-image:nth-child(3) {
     
 }
-.slider-image:nth-child(4) {
+#slider-image:nth-child(4) {
     
 }
-.slider-image:nth-child(5) {
+#slider-image:nth-child(5) {
     margin-right: 58px;
 }
 
@@ -201,19 +201,19 @@ main {
     top: -30px;
 }
 
-.slider-image:nth-child(1) {
+#slider-image.imghidden:nth-child(1) {
     
 }
-.slider-image:nth-child(2) {
+#slider-image.imghidden:nth-child(2) {
     
 }
-.slider-image:nth-child(3) {
+#slider-image.imghidden:nth-child(3) {
     
 }
-.slider-image:nth-child(4) {
+#slider-image.imghidden:nth-child(4) {
     
 }
-.slider-image:nth-child(5) {
+#slider-image.imghidden:nth-child(5) {
     
 }
 
@@ -518,7 +518,7 @@ main {
     font-family: Quicksand;
     font-weight: 500;
     height: 40px;
-    width: 100px;
+    width: 90px;
     border-radius: 20px;
     border: 1px solid black;
     background-color: transparent;
@@ -789,6 +789,7 @@ h4 {
 .btndiv {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 #opentc {
     font-size: 14px;
@@ -806,12 +807,46 @@ h4 {
     font-family: Quicksand;
     font-weight: 450;
     height: 35px;
-    width: 160px;
+    width: 170px;
     border-radius: 18px;
     border: 1px solid black;
     background-color: transparent;
     margin-top: 1rem;
     margin-bottom: 2rem;
+}
+#warningWb.chhupa {
+    display: none;
+}
+#warningWb {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    animation: opa 0.2s 0s ease-in-out 1 forwards;
+}
+.warnWb {
+    background-color: white;
+    background-size: cover;
+    padding: 20px;
+    border-radius: 8px;
+    width: 16rem;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    border: 2px solid #A0A0A0;
+    opacity: 0;
+    animation: showContent 0.2s 0s ease-in-out 1 forwards;
+    overflow-x: hidden;
+}
+.btndiv2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 @font-face {
     font-family: Major;
