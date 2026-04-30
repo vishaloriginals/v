@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>History Sem-1 (Chapters)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f3ef;
+    --bg-card: #ffffff;
+    --text: #0f0e0c;
+    --text-sub: #6b6560;
+    --text-muted: #a09890;
+    --accent: #c84b2f;
+    --accent-soft: rgba(200,75,47,0.08);
+    --accent-mid: rgba(200,75,47,0.15);
+    --border: rgba(15,14,12,0.08);
+    --border-hover: rgba(200,75,47,0.35);
+    --unit-bg: #0f0e0c;
+    --unit-text: #f5f3ef;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.06);
+    --r: 10px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── PASSWORD GATE ── */
+  #password-gate {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(15,14,12,0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 12px;
+    animation: fadeIn 0.35s ease forwards;
+  }
+
+  #password-gate.hiding {
+    animation: fadeOut 0.4s ease forwards;
+  }
+
+  .gate-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    /* Key fix: constrain to viewport height with overflow scroll as safety net */
+    width: 100%;
+    max-width: 340px;
+    max-height: calc(100dvh - 24px);
+    overflow-y: auto;
+    padding: 24px 24px 20px;
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+    animation: slideUp 0.45s cubic-bezier(0.22,1,0.36,1) forwards;
+  }
+
+  .gate-lock {
+    width: 44px; height: 44px;
+    background: var(--accent-soft);
+    border: 1.5px solid var(--accent-mid);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 12px;
+    flex-shrink: 0;
+  }
+  .gate-lock svg {
+    width: 20px; height: 20px;
+    fill: none; stroke: var(--accent); stroke-width: 2;
+    stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  .gate-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem; color: var(--text);
+    letter-spacing: -0.02em; margin-bottom: 4px;
+  }
+
+  .gate-subtitle {
+    font-size: 0.82rem; color: var(--text-sub);
+    font-weight: 300; line-height: 1.4;
+    margin-bottom: 16px;
+  }
+
+  /* PIN dots row */
+  .pin-dots {
+    display: flex; justify-content: center; gap: 12px;
+    margin-bottom: 16px;
+  }
+  .pin-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    background: transparent;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  }
+  .pin-dot.filled {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: scale(1.15);
+  }
+  .pin-dot.error {
+    background: #e53e3e;
+    border-color: #e53e3e;
+    animation: shake 0.4s ease;
+  }
+
+  /* Number pad */
+  .numpad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+    margin-bottom: 8px;
+  }
+
+  .numpad-btn {
+    /* Fixed compact height — no clamp that blows up in landscape */
+    height: 46px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s, border-color 0.15s, transform 0.1s;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .numpad-btn:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent-mid);
+    color: var(--accent);
+  }
+  .numpad-btn:active { transform: scale(0.94); }
+
+  .numpad-btn.del { font-size: 1rem; color: var(--text-sub); }
+  .numpad-btn.del svg {
+    width: 17px; height: 17px;
+    fill: none; stroke: currentColor; stroke-width: 2;
+    stroke-linecap: round; stroke-linejoin: round;
+    pointer-events: none;
+  }
+
+  .gate-error {
+    font-size: 0.75rem; color: #e53e3e;
+    font-weight: 500; letter-spacing: 0.04em;
+    height: 16px;
+    transition: opacity 0.2s;
+    opacity: 0;
+  }
+  .gate-error.show { opacity: 1; }
+
+  /* ── Landscape / desktop: two-column layout inside the card ── */
+  @media (max-height: 500px) {
+    .gate-card {
+      max-width: 560px;
+      padding: 18px 24px 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 24px;
+      align-items: center;
+      text-align: left;
+    }
+    /* Left column: lock + title + subtitle + dots + error */
+    .gate-left {
+      display: flex; flex-direction: column;
+      align-items: flex-start; gap: 10px;
+    }
+    .gate-lock { margin: 0; }
+    .gate-title { font-size: 1.15rem; }
+    .gate-subtitle { margin-bottom: 0; font-size: 0.8rem; }
+    .pin-dots { justify-content: flex-start; margin-bottom: 0; }
+    .gate-error { height: 14px; }
+    /* Right column: numpad */
+    .numpad { margin-bottom: 0; gap: 6px; }
+    .numpad-btn { height: 40px; font-size: 1.05rem; }
+  }
+
+  @keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    20%     { transform: translateX(-5px); }
+    40%     { transform: translateX(5px); }
+    60%     { transform: translateX(-4px); }
+    80%     { transform: translateX(4px); }
+  }
+
+  /* ── LAYOUT ── */
+  .page { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245,243,239,0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 960px; margin: 0 auto; padding: 0 24px;
+    height: 56px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem; color: var(--text);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-pill {
+    font-size: 0.7rem; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 5px 12px; border-radius: 99px;
+    border: 1px solid var(--accent-mid);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 72px 0 56px;
+    opacity: 0; animation: riseIn 0.7s 0.1s cubic-bezier(0.22,1,0.36,1) forwards;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block; width: 22px; height: 1.5px;
+    background: var(--accent); border-radius: 2px;
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    max-width: 640px;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+
+  .hero-desc {
+    margin-top: 20px;
+    font-size: 1.05rem; font-weight: 300; line-height: 1.7;
+    color: var(--text-sub);
+    max-width: 480px;
+  }
+
+  /* ── STATS ROW ── */
+  .stats-row {
+    display: flex; gap: 0;
+    margin-top: 44px; padding-top: 28px;
+    border-top: 1px solid var(--border);
+    opacity: 0; animation: riseIn 0.7s 0.3s cubic-bezier(0.22,1,0.36,1) forwards;
+  }
+  .stat {
+    padding-right: 36px; margin-right: 36px;
+    border-right: 1px solid var(--border);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-n {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem; color: var(--text); line-height: 1;
+  }
+  .stat-l {
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--text-muted); margin-top: 4px;
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider { height: 1px; background: var(--border); margin: 16px 0 48px; }
+
+  /* ── UNIT BLOCK ── */
+  .unit-block {
+    margin-bottom: 56px;
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .unit-block.in { opacity: 1; transform: translateY(0); }
+
+  .unit-label-row { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+
+  .unit-badge {
+    font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--unit-text);
+    background: var(--unit-bg);
+    padding: 5px 11px; border-radius: 5px;
+    white-space: nowrap;
+  }
+
+  .unit-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem; color: var(--text); letter-spacing: -0.01em;
+  }
+
+  /* ── CHAPTER LIST ── */
+  .chapter-list { display: flex; flex-direction: column; gap: 8px; }
+
+  .chapter-row {
+    display: flex; align-items: center; gap: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    overflow: hidden;
+    text-decoration: none; color: inherit;
+    box-shadow: var(--shadow-sm);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s cubic-bezier(0.22,1,0.36,1);
+    position: relative;
+  }
+  .chapter-row::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--accent);
+    transform: scaleY(0); transform-origin: bottom;
+    transition: transform 0.25s cubic-bezier(0.22,1,0.36,1);
+    border-radius: 0 2px 2px 0;
+  }
+  .chapter-row:hover { border-color: var(--border-hover); box-shadow: var(--shadow-lg); transform: translateX(3px); }
+  .chapter-row:hover::before { transform: scaleY(1); }
+
+  .chap-num {
+    flex-shrink: 0; width: 54px; height: 58px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif; font-size: 1.1rem;
+    color: var(--text-muted);
+    border-right: 1px solid var(--border);
+    transition: color 0.2s, background 0.2s;
+  }
+  .chapter-row:hover .chap-num { color: var(--accent); background: var(--accent-soft); }
+
+  .chap-body {
+    flex: 1; padding: 0 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .chap-icon {
+    flex-shrink: 0; width: 32px; height: 32px;
+    border-radius: 7px; background: var(--accent-soft);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .chapter-row:hover .chap-icon { background: var(--accent-mid); }
+  .chap-icon svg { width: 15px; height: 15px; fill: var(--accent); }
+
+  .chap-title {
+    font-size: 0.97rem; font-weight: 400;
+    color: var(--text); line-height: 1.3;
+    transition: color 0.2s;
+  }
+  .chapter-row:hover .chap-title { color: var(--accent); }
+
+  .chap-right { flex-shrink: 0; padding: 0 20px; display: flex; align-items: center; gap: 10px; }
+
+  .chap-tag {
+    font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text-muted); background: var(--bg);
+    border: 1px solid var(--border); padding: 3px 9px; border-radius: 4px;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+  }
+  .chapter-row:hover .chap-tag { background: var(--accent-soft); border-color: var(--accent-mid); color: var(--accent); }
+
+  .dl-btn {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: var(--bg); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  }
+  .chapter-row:hover .dl-btn { background: var(--accent); border-color: var(--accent); transform: translateY(1px); }
+  .dl-btn svg {
+    width: 14px; height: 14px; fill: none; stroke: var(--text-sub);
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    transition: stroke 0.2s;
+  }
+  .chapter-row:hover .dl-btn svg { stroke: #fff; }
+
+  /* ── FOOTER ── */
+  .footer {
+    border-top: 1px solid var(--border); padding: 36px 0;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+    opacity: 0; animation: riseIn 0.7s 0.2s ease forwards;
+  }
+  .footer-left { font-family: 'DM Serif Display', serif; font-size: 0.95rem; color: var(--text-sub); }
+  .footer-right { font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+
+  /* ── PROGRESS BAR ── */
+  #progress {
+    position: fixed; top: 0; left: 0; right: 0;
+    height: 2px; background: var(--accent);
+    transform-origin: left; transform: scaleX(0);
+    z-index: 200; transition: transform 0.1s linear;
+  }
+
+  /* ── KEYFRAMES ── */
+  @keyframes riseIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: rgba(15,14,12,0.12); border-radius: 4px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .chap-tag { display: none; }
+    .hero { padding: 48px 0 40px; }
+    .stats-row { gap: 0; }
+    .stat { padding-right: 24px; margin-right: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── PASSWORD GATE ── -->
+<div id="password-gate" role="dialog" aria-modal="true" aria-label="Password required">
+  <div class="gate-card">
+    <!-- In landscape these two divs become columns -->
+    <div class="gate-left">
+      <div class="gate-lock">
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+      </div>
+      <div class="gate-title">Access Protected</div>
+      <p class="gate-subtitle">Enter the 4-digit password to continue.</p>
+      <div class="pin-dots">
+        <div class="pin-dot" id="d0"></div>
+        <div class="pin-dot" id="d1"></div>
+        <div class="pin-dot" id="d2"></div>
+        <div class="pin-dot" id="d3"></div>
+      </div>
+      <div class="gate-error" id="gate-error">Incorrect password. Try again.</div>
+    </div>
+
+    <div class="numpad" id="numpad">
+      <button class="numpad-btn" data-n="1">1</button>
+      <button class="numpad-btn" data-n="2">2</button>
+      <button class="numpad-btn" data-n="3">3</button>
+      <button class="numpad-btn" data-n="4">4</button>
+      <button class="numpad-btn" data-n="5">5</button>
+      <button class="numpad-btn" data-n="6">6</button>
+      <button class="numpad-btn" data-n="7">7</button>
+      <button class="numpad-btn" data-n="8">8</button>
+      <button class="numpad-btn" data-n="9">9</button>
+      <button class="numpad-btn" style="visibility:hidden" disabled></button>
+      <button class="numpad-btn" data-n="0">0</button>
+      <button class="numpad-btn del" id="del-btn">
+        <svg viewBox="0 0 24 24"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/><line x1="18" y1="9" x2="12" y2="15"/><line x1="12" y1="9" x2="18" y2="15"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="progress"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">Vishal <span>Jamuda</span></a>
+    <span class="nav-pill">15 Chapters</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page">
+  <section class="hero">
+    <div class="hero-eyebrow">History Chapter Repository</div>
+    <h1>The <br><em>Idea</em> of<br>Bharat</h1>
+    <p class="hero-desc">Five units covering the ancient wisdom, art, science, governance, and economy of India. Click any chapter to download.</p>
+
+    <div class="stats-row">
+      <div class="stat"><div class="stat-n">5</div><div class="stat-l">Units</div></div>
+      <div class="stat"><div class="stat-n">15</div><div class="stat-l">Chapters</div></div>
+      <div class="stat"><div class="stat-n">PDF</div><div class="stat-l">Format</div></div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+  <main id="units"></main>
+
+  <footer class="footer">
+    <div class="footer-left">The Idea of Bharat (Sem-1)</div>
+    <div class="footer-right">All rights reserved</div>
+  </footer>
+</div>
+
+<script>
+/* ── PASSWORD GATE LOGIC ── */
+const CORRECT = '2007';
+let entered = '';
+
+const gate      = document.getElementById('password-gate');
+const errorMsg  = document.getElementById('gate-error');
+const dots      = [0,1,2,3].map(i => document.getElementById('d'+i));
+
+function updateDots(isError) {
+  dots.forEach((d, i) => {
+    d.classList.remove('filled','error');
+    if (i < entered.length) d.classList.add(isError ? 'error' : 'filled');
+  });
+}
+
+function showError() {
+  updateDots(true);
+  errorMsg.classList.add('show');
+  setTimeout(() => {
+    entered = '';
+    updateDots(false);
+    errorMsg.classList.remove('show');
+  }, 900);
+}
+
+function tryUnlock() {
+  if (entered === CORRECT) {
+    gate.classList.add('hiding');
+    gate.addEventListener('animationend', () => gate.remove(), { once: true });
+  } else {
+    showError();
+  }
+}
+
+document.getElementById('numpad').addEventListener('click', e => {
+  const btn = e.target.closest('.numpad-btn');
+  if (!btn) return;
+  if (btn.id === 'del-btn') {
+    entered = entered.slice(0, -1);
+    updateDots(false);
+    errorMsg.classList.remove('show');
+    return;
+  }
+  const n = btn.dataset.n;
+  if (n === undefined || entered.length >= 4) return;
+  entered += n;
+  updateDots(false);
+  if (entered.length === 4) setTimeout(tryUnlock, 150);
+});
+
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('password-gate')) return;
+  if (e.key >= '0' && e.key <= '9' && entered.length < 4) {
+    entered += e.key;
+    updateDots(false);
+    if (entered.length === 4) setTimeout(tryUnlock, 150);
+  } else if (e.key === 'Backspace') {
+    entered = entered.slice(0, -1);
+    updateDots(false);
+    errorMsg.classList.remove('show');
+  }
+});
+
+/* ── CHAPTER DATA ── */
+const data = [
+  {
+    unit: 1, name: "Concept of Bharatvarsha",
+    chapters: [
+      { n: 1, title: "Bharatvarsha",           file: "Unit-1.Chapter-1(Bharatvarsha).pdf" },
+      { n: 2, title: "Time and Space",          file: "Unit-1.Chapter-2(Time_and_Space).pdf" },
+      { n: 3, title: "Ved, Vedang & Upanishad", file: "Unit-1.Chapter-3(Ved_Vedang_Upnishad).pdf" },
+    ]
+  },
+  {
+    unit: 2, name: "Indian Knowledge System, Art and Culture",
+    chapters: [
+      { n: 1, title: "Language and Script",         file: "Unit-2.Chapter-1(Language_and_Script).pdf" },
+      { n: 2, title: "Art, Architecture & Culture", file: "Unit-2.Chapter-2(Art_Architecture_Culture).pdf" },
+      { n: 3, title: "Indian Education System",     file: "Unit-2.Chapter-3(Indian_Education_System).pdf" },
+    ]
+  },
+  {
+    unit: 3, name: "Dharma, Darshan and Vasudhaiva Kutumbakam",
+    chapters: [
+      { n: 1, title: "Dharma, Darshan & Vasudhaiva Kutumbakam", file: "Unit-3.Chapter-1(Dharma_Darshan_and_Vasudhaiva_Kutumbakam).pdf" },
+      { n: 2, title: "Polity and Governance",                   file: "Unit-3.Chapter-2(Polity_and_Governance).pdf" },
+    ]
+  },
+  {
+    unit: 4, name: "Science, Technology, Environment and Medicine",
+    chapters: [
+      { n: 1, title: "Science and Technology",        file: "Unit-4.Chapter-1(Science_and_Technology).pdf" },
+      { n: 2, title: "Environmental Conservation",    file: "Unit-4.Chapter-2(Environmental_Conservation).pdf" },
+      { n: 3, title: "Ayurveda, Yoga & Naturopathy",  file: "Unit-4.Chapter-3(Ayurveda_Yoga_&_Naturopathy).pdf" },
+      { n: 4, title: "Numeral System and Mathematics",file: "Unit-4.Chapter-4(Numeral_System_and_Maths).pdf" },
+    ]
+  },
+  {
+    unit: 5, name: "Indian Economic Traditions",
+    chapters: [
+      { n: 1, title: "Indian Economic Thoughts",   file: "Unit-5.Chapter-1(Indian_Economic_thoughts).pdf" },
+      { n: 2, title: "Land, Forest & Agriculture", file: "Unit-5.Chapter-2(Land.Forest.Agriculture).pdf" },
+      { n: 3, title: "Industry and Trade",         file: "unit-5.Chapter-3(Industry_and_Trade).pdf" },
+    ]
+  }
+];
+
+const pdfIcon = `<svg viewBox="0 0 20 20"><path d="M11 2H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7l-5-5zm-1 1.5L14.5 8H10V3.5zM5 4h3v6h8v8H5V4z"/></svg>`;
+const dlIcon  = `<svg viewBox="0 0 16 16"><polyline points="8 3 8 11"/><polyline points="5 8 8 11 11 8"/><line x1="3" y1="14" x2="13" y2="14"/></svg>`;
+
+const mainEl = document.getElementById('units');
+
+data.forEach((unit, ui) => {
+  const block = document.createElement('div');
+  block.className = 'unit-block';
+  block.style.transitionDelay = `${ui * 0.08}s`;
+
+  const rows = unit.chapters.map(ch => `
+    <a class="chapter-row" href="${ch.file}" download="${ch.file}">
+      <div class="chap-num">${ch.n.toString().padStart(2,'0')}</div>
+      <div class="chap-body">
+        <div class="chap-icon">${pdfIcon}</div>
+        <div class="chap-title">${ch.title}</div>
+      </div>
+      <div class="chap-right">
+        <span class="chap-tag">PDF</span>
+        <div class="dl-btn">${dlIcon}</div>
+      </div>
+    </a>
+  `).join('');
+
+  block.innerHTML = `
+    <div class="unit-label-row">
+      <span class="unit-badge">Unit ${unit.unit}</span>
+      <span class="unit-name">${unit.name}</span>
+    </div>
+    <div class="chapter-list">${rows}</div>
+  `;
+
+  if (ui < data.length - 1) {
+    const sep = document.createElement('div');
+    sep.style.cssText = 'height:1px;background:var(--border);margin:44px 0 44px';
+    block.appendChild(sep);
+  }
+
+  mainEl.appendChild(block);
+});
+
+// Scroll reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.unit-block').forEach(b => io.observe(b));
+
+// Reading progress bar
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const pct = window.scrollY / (doc.scrollHeight - doc.clientHeight);
+  document.getElementById('progress').style.transform = `scaleX(${pct})`;
+});
+</script>
+</body>
+</html>
