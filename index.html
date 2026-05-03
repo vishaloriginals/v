@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Parallel Frames — Custom pencil sketches, hand-coded websites, and free Lightroom presets by Vishal from Jharkhand, India."/>
+<meta name="keywords" content="parallel frames, vishaloriginals, pencil sketch commission, custom website India, free lightroom presets"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" href="favicon.ico">
+<meta property="og:title" content="Parallel Frames"/>
+<meta property="og:description" content="Custom pencil sketches, websites & Lightroom presets by Vishal."/>
+<title>Parallel Frames</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,700&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="loading">
+
+<div id="cur"></div>
+<div id="cur2"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="l-word"><span>Parallel</span></div>
+  <div class="l-word"><span>Frames</span></div>
+  <div class="l-count" id="lcount">000</div>
+  <div class="l-line"></div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#home" class="nav-logo">
+    <div class="nav-logo-badge">
+      <img src="images/parallel-frames.svg" alt="" />
+    </div>
+    Parallel Frames
+  </a>
+  <div class="nav-right" id="navRight">
+    <a href="#home" class="nav-link">Home</a>
+    <a href="#sketches" class="nav-link">Sketches</a>
+    <a href="#websites" class="nav-link">Websites</a>
+    <a href="#presets" class="nav-link">Presets</a>
+    <a href="#students" class="nav-link">Students</a>
+    <a href="#contact" class="nav-link">Contact</a>
+    <a href="#" class="nav-link nav-creator-btn" onclick="openModal();return false">Creator</a>
+  </div>
+  <div class="burger" id="burger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-left">
+    <span class="hero-eyebrow">// Art · Sketches · Web Design · Presets</span>
+    <h1 class="hero-h1">
+      <span class="line"><span>Where</span></span>
+      <span class="line"><span><em>Every</em> Frame</span></span>
+      <span class="line"><span>Tells a Story.</span></span>
+    </h1>
+    <p class="hero-desc">Hand-drawn pencil sketches, custom-coded websites, and cinematic Lightroom presets — crafted by one artist in Jharkhand, India. Every pixel intentional. Every stroke personal.</p>
+    <div class="hero-btns">
+      <a href="#sketches" class="btn btn-ink">View Work &nbsp;↓</a>
+      <a href="#" class="btn btn-ol" onclick="openModal();return false">Meet Vishal</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-img" id="heroImg"></div>
+    <div class="hero-badge">
+      vishaloriginals
+      <strong>Parallel Frames</strong>
+      Design Studio · Est. 2024
+    </div>
+    <div class="hero-ring">
+      <svg viewBox="0 0 90 90" width="90" height="90">
+        <path id="rpath" d="M45,45 m-32,0 a32,32 0 1,1 64,0 a32,32 0 1,1 -64,0" fill="none"/>
+        <text font-family="JetBrains Mono,monospace" font-size="7.4" fill="rgba(14,12,10,0.45)" letter-spacing="3">
+          <textPath href="#rpath">ART · DESIGN · WEB · PRESETS · </textPath>
+        </text>
+      </svg>
+      <div class="hero-ring-dot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span>Pencil Portraits</span><span class="mdot">✦</span>
+    <span>Custom Websites</span><span class="mdot">✦</span>
+    <span>Lightroom Presets</span><span class="mdot">✦</span>
+    <span>vishaloriginals</span><span class="mdot">✦</span>
+    <span>Parallel Frames</span><span class="mdot">✦</span>
+    <span>Starting ₹200</span><span class="mdot">✦</span>
+    <span>Jharkhand, India</span><span class="mdot">✦</span>
+    <span>Pencil Portraits</span><span class="mdot">✦</span>
+    <span>Custom Websites</span><span class="mdot">✦</span>
+    <span>Lightroom Presets</span><span class="mdot">✦</span>
+    <span>vishaloriginals</span><span class="mdot">✦</span>
+    <span>Parallel Frames</span><span class="mdot">✦</span>
+    <span>Starting ₹200</span><span class="mdot">✦</span>
+    <span>Jharkhand, India</span><span class="mdot">✦</span>
+  </div>
+</div>
+
+<!-- SKETCHES -->
+<section class="section" id="sketches">
+  <div class="sk-inner">
+    <div class="rv">
+      <span class="section-num">01 / Handcrafted Art</span>
+      <h2 class="section-title">Custom Pencil<br/><em>Sketches</em></h2>
+      <div class="price-mono">Starting at ₹200</div>
+      <p class="section-sub">Every portrait is drawn by hand — no filters, no shortcuts. Commission a sketch of yourself, loved ones, or any character. Delivered digitally or on paper.</p>
+      <a href="drawing.html" class="btn btn-rust">Order a Sketch &nbsp;→</a>
+    </div>
+    <div class="sketches-mosaic rv">
+      <div class="sk"><img src="images/draw1.jpg" alt="Portrait"/><div class="sk-label">Portrait</div></div>
+      <div class="sk"><img src="images/draw3.jpg" alt="Bird"/><div class="sk-label">Bird</div></div>
+      <div class="sk"><img src="images/draw2.jpg" alt="Character"/><div class="sk-label">Character</div></div>
+      <div class="sk"><img src="images/draw4.jpg" alt="Concept"/><div class="sk-label">Concept</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WEBSITES -->
+<section class="section" id="websites">
+  <div class="rv">
+    <span class="section-num">02 / Web Design</span>
+    <h2 class="section-title" style="color:var(--paper)">Own a Custom<br/><em>Website</em></h2>
+    <div class="price-mono">Starting at ₹400</div>
+    <p class="section-sub dark-sub">Modern, responsive, hand-coded websites built from scratch. No templates. No cookie-cutter designs. Just clean, fast, and yours.</p>
+  </div>
+  <div class="web-row rv">
+    <div class="wcard">
+      <div class="wcard-chrome"><div class="wd"></div><div class="wd"></div><div class="wd"></div><span>portfolio.site</span></div>
+      <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=640&h=400&fit=crop&q=80" alt="Portfolio"/>
+      <div class="wcard-body"><span class="wcard-tag">Portfolio</span><h3>Personal Brand</h3></div>
+    </div>
+    <div class="wcard">
+      <div class="wcard-chrome"><div class="wd"></div><div class="wd"></div><div class="wd"></div><span>mybusiness.in</span></div>
+      <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=640&h=400&fit=crop&q=80" alt="Business"/>
+      <div class="wcard-body"><span class="wcard-tag">Business</span><h3>Landing Page</h3></div>
+    </div>
+    <div class="wcard">
+      <div class="wcard-chrome"><div class="wd"></div><div class="wd"></div><div class="wd"></div><span>studio.design</span></div>
+      <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=640&h=400&fit=crop&q=80" alt="Studio"/>
+      <div class="wcard-body"><span class="wcard-tag">Creative</span><h3>Studio Site</h3></div>
+    </div>
+  </div>
+  <div class="rv" style="display:flex;align-items:center;gap:28px;flex-wrap:wrap">
+    <button class="btn btn-rust" onclick="openWebModal()">Order Your Website</button>
+    <span class="web-cta-note">// Delivered in 30 days · Mobile responsive · Using ready</span>
+  </div>
+</section>
+
+<!-- PRESETS -->
+<section class="section" id="presets">
+  <div class="pr-inner">
+    <div class="pframes rv2">
+      <div class="pframe"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=380&fit=crop&q=80" alt="Before"/></div>
+      <div class="pframe"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=380&fit=crop&q=80" alt="After" style="filter:saturate(1.5) contrast(1.12) brightness(1.04) sepia(.14)"/></div>
+      <div class="pframe"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=300&h=200&fit=crop&q=80" alt="Preview"/></div>
+      <span class="pframe-note"></span>
+    </div>
+    <div class="rv">
+      <span class="section-num">03 / Free Download</span>
+      <h2 class="section-title">Lightroom<br/><em>Presets</em></h2>
+      <p class="section-sub">Professional presets that transform your photos in one click. Crafted for cinematic, portrait &amp; travel photography. Completely free — always.</p>
+      <div class="ps-row">
+        <div class="ps" style="background:linear-gradient(135deg,#c8a96e,#7a5c2a)"></div>
+        <div class="ps" style="background:linear-gradient(135deg,#7ba3b8,#2c5a72)"></div>
+        <div class="ps" style="background:linear-gradient(135deg,#a3ba7b,#3d6020)"></div>
+        <div class="ps" style="background:linear-gradient(135deg,#ba7b7b,#602020)"></div>
+        <div class="ps" style="background:linear-gradient(135deg,#b0b0b0,#404040)"></div>
+      </div>
+      <ul class="preset-list">
+        <li>10+ handcrafted presets included</li>
+        <li>Works on Lightroom mobile &amp; desktop</li>
+        <li>Cinematic · Portrait · Travel · Moody styles</li>
+        <li>One-click instant transformation</li>
+        <li>Always free — forever</li>
+      </ul>
+      <a href="https://drive.google.com/drive/folders/1ytgz2U7-uEDARb7AKjvJUDVGG2mSzJlM" target="_blank" class="btn btn-ink">↓ &nbsp;Download Free Presets</a>
+    </div>
+  </div>
+</section>
+
+<!-- STUDENTS SECTION -->
+<section class="section" id="students">
+  <div class="students-inner">
+    <div class="rv">
+      <span class="section-num">04 / For Students</span>
+      <h2 class="section-title">Students<br/><em>Corner</em></h2>
+      <p class="section-sub">Curated study resources, notes, and materials — handpicked and organised to help you learn better. Completely free for students, always.</p>
+      <ul class="students-list">
+        <li>Well-organised topic-wise PDF notes</li>
+        <li>Easy to understand, exam-ready format</li>
+        <li>Covers multiple subjects &amp; chapters</li>
+        <li>New notes added regularly</li>
+        <li>100% free — no signup needed</li>
+      </ul>
+      <div class="students-btns">
+        <a href="notes.html" class="btn btn-olive"><i class="fas fa-file-pdf"></i> &nbsp;PDF Notes</a>
+        <a href="#contact" class="btn btn-ol">Request a Topic</a>
+      </div>
+    </div>
+    <div class="students-visual rv">
+      <div class="sv-card">
+        <div class="sv-icon"><i class="fas fa-book-open"></i></div>
+        <h4>Study Notes</h4>
+        <p>Detailed PDF notes covering key topics, definitions &amp; examples</p>
+      </div>
+      <div class="sv-card">
+        <div class="sv-icon"><i class="fas fa-pen-nib"></i></div>
+        <h4>Exam Ready</h4>
+        <p>Formatted to help you revise quickly before exams</p>
+      </div>
+      <div class="sv-card">
+        <div class="sv-icon"><i class="fas fa-download"></i></div>
+        <h4>Free Downloads</h4>
+        <p>All materials available for free — download anytime, anywhere</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MESSAGE -->
+<section class="section" id="message">
+  <div class="ms-inner">
+    <div class="rv">
+      <span class="section-num">05 / Say Hello</span>
+      <h2 class="section-title">Leave a<br/><em>Message</em></h2>
+      <p class="section-sub">Got a project in mind? A question? Just say hi. Every message goes straight to Vishal via Telegram.</p>
+      <div class="msg-deco">Hello.</div>
+    </div>
+    <div class="rv" style="padding-top:20px">
+      <div class="field">
+        <label for="uname">Your Name</label>
+        <input type="text" id="uname" placeholder="Name"/>
+      </div>
+      <div class="field">
+        <label for="umsg">Your Message</label>
+        <textarea id="umsg" placeholder="Hey There!&#10;Everything good?"></textarea>
+      </div>
+      <button class="btn btn-ink" id="sendBtn" onclick="sendMsg()" style="width:100%;justify-content:center;">Send Message &nbsp;→</button>
+      <div class="fnote" id="fnote"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="rv">
+    <span class="section-num" style="color:rgba(245,240,232,.25)">06 / Find Me Online</span>
+    <h2 class="section-title" style="color:var(--paper)">Let's <em>Connect</em></h2>
+  </div>
+  <div class="cg rv">
+    <a class="clink" href="https://www.instagram.com/vishaloriginals?igsh=NG9wdTlsNzV3dW04" target="_blank">
+      <i class="fab fa-instagram ci"></i>
+      <h4>Instagram</h4>
+      <p>@vishaloriginals</p>
+      <span class="carr">View Profile &nbsp;→</span>
+    </a>
+    <a class="clink" href="mailto:originalsvishal@gmail.com">
+      <i class="fas fa-envelope ci"></i>
+      <h4>Gmail</h4>
+      <p>originalsvishal@gmail.com</p>
+      <span class="carr">Send Email &nbsp;→</span>
+    </a>
+    <a class="clink" href="https://t.me/vishaloriginals" target="_blank">
+      <i class="fab fa-telegram ci"></i>
+      <h4>Telegram</h4>
+      <p>@vishaloriginals</p>
+      <span class="carr">Open Chat &nbsp;→</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div>
+      <div class="fb-name">Parallel Frames</div>
+      <div class="fb-by">A website by vishaloriginals &nbsp;·&nbsp; Jharkhand, India</div>
+    </div>
+    <div class="fl">
+      <a href="#home" class="fl-a">Home</a>
+      <a href="#" class="fl-a" onclick="openModal();return false">About Creator</a>
+      <a href="#students" class="fl-a">Students</a>
+      <a href="#" class="fl-a" onclick="showTerms();return false">Terms</a>
+      <a href="mailto:originalsvishal@gmail.com" class="fl-a">Email</a>
+    </div>
+  </div>
+  <div class="fb">
+    <span>© 2024 Parallel Frames LTD — All rights reserved</span>
+    <a href="mailto:originalsvishal@gmail.com">originalsvishal@gmail.com</a>
+  </div>
+</footer>
+
+<!-- CREATOR MODAL -->
+<div class="overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal">
+    <div class="mhead">
+      <button class="mclose" onclick="closeModal()">[ close ✕ ]</button>
+      <div class="mav"></div>
+      <div class="mname">Vishal</div>
+      <span class="mhandle">@vishaloriginals</span>
+      <span class="mrole">Designer &amp; Developer</span>
+    </div>
+    <div class="mbody">
+      <p>A self-taught artist and developer from Jharkhand, India. Vishal blends the analogue warmth of hand-drawn art with the precision of modern web development — creating work that is both deeply personal and technically refined.<br/><br/>Every sketch, every website, every preset is made with intention and care.</p>
+      <div class="msoc">
+        <a href="https://www.instagram.com/vishaloriginals" target="_blank" class="ms-link"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://t.me/vishaloriginals" target="_blank" class="ms-link"><i class="fab fa-telegram"></i> Telegram</a>
+        <a href="mailto:originalsvishal@gmail.com" class="ms-link"><i class="fas fa-envelope"></i> Email</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WEBSITE ORDER MODAL -->
+<div class="overlay" id="webModal" onclick="closeWebModal(event)">
+  <div class="modal" style="max-width:520px">
+    <div class="mhead">
+      <button class="mclose" onclick="closeWebModal()">[ close ✕ ]</button>
+      <div class="mhead-title">Order a Website</div>
+      <span class="mhead-sub">// Fill in your details — Vishal will reach out as soon as possible</span>
+    </div>
+    <div class="mbody" style="padding:28px 36px 32px;max-height:65vh;overflow-y:auto">
+      <div class="wm-field">
+        <label for="wm-name">Your Full Name</label>
+        <input type="text" id="wm-name" placeholder="e.g. Rahul Kumar"/>
+      </div>
+      <div class="wm-field">
+        <label for="wm-number">Phone / WhatsApp Number</label>
+        <input type="tel" id="wm-number" placeholder="e.g. +91 98765 43210"/>
+      </div>
+      <div class="wm-field">
+        <label for="wm-email">Email Address</label>
+        <input type="email" id="wm-email" placeholder="e.g. yourname@gmail.com"/>
+      </div>
+      <div class="wm-field">
+        <label for="wm-msg">Tell me about your website</label>
+        <textarea id="wm-msg" placeholder="What kind of website do you need? Portfolio, business, landing page? Any specific features, colors, or references?"></textarea>
+      </div>
+      <button class="btn btn-rust" id="wmSendBtn" onclick="sendWebOrder()" style="width:100%;justify-content:center;margin-top:8px">Send Order &nbsp;→</button>
+      <div class="wm-note" id="wm-note"></div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
